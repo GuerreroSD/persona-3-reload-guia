@@ -4,6 +4,20 @@ Página de fans de **Persona 3 Reload** con estética inspirada en la interfaz d
 
 **Ver online:** https://guerrerosd.github.io/persona-3-reload-guia/
 
+![Inicio](screenshots/01-inicio.jpg)
+
+## Capturas
+
+| Menú estilo P3R | Miembros del SEES |
+|---|---|
+| ![Menú](screenshots/02-menu.jpg) | ![SEES](screenshots/03-sees.jpg) |
+| **Ficha de personaje** | **Social Links** |
+| ![Ficha](screenshots/04-ficha.jpg) | ![Social Links](screenshots/05-social-links.jpg) |
+| **Mes a mes** | **Semana a semana** |
+| ![Mes a mes](screenshots/06-mes-a-mes.jpg) | ![Semana a semana](screenshots/07-semana-a-semana.jpg) |
+| **Modo Hora Oscura** | |
+| ![Hora Oscura](screenshots/08-hora-oscura.jpg) | |
+
 ## Contenido
 - Menú de pausa al estilo P3R (botón MENU o tecla `M`).
 - Modo "Hora Oscura".
