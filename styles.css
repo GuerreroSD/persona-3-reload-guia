@@ -658,3 +658,100 @@ body.dark-hour .md--moon time { background: #d6f59c; }
 
 /* Hierofante: imagen ancha (pareja), se muestra completa sin zoom */
 .slink__pic img.is-wide { transform: scale(1.15); object-fit: contain; object-position: center; }
+
+/* =========================================================
+   MÓVIL — ajustes para pantallas de teléfono
+   ========================================================= */
+html { overflow-x: hidden; }
+body { overflow-x: clip; }
+.section--accent::before { left: calc(50% - 50vw); right: calc(50% - 50vw); }
+
+/* Grids que nunca superan el ancho de la pantalla */
+.social-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.mech-grid, .tips { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+.gallery { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.stat-howto { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+
+@media (max-width: 640px) {
+  /* Barra superior */
+  .nav { padding: 8px 12px; gap: 8px; }
+  .nav__logo { font-size: 1.2rem; }
+  .hud-date__moon { width: 24px; height: 24px; }
+  .menu-btn { padding: 5px 14px; font-size: 1rem; }
+
+  /* Portada: la luna pasa a decorar la esquina */
+  .hero { padding: 88px 16px 40px; min-height: 0; gap: 28px; }
+  .hero__moon { width: 78vw; left: auto; right: -28vw; top: 64px; opacity: .45; }
+  .hero__title { font-size: clamp(3rem, 17vw, 4.4rem); }
+  .hero__quote { font-size: 1.05rem; margin: 14px 0 22px; }
+  .hero__art { width: 100%; justify-self: stretch; }
+
+  /* Secciones */
+  .section { padding-block: 64px 40px; }
+  .section__title { flex-wrap: wrap; gap: 6px 10px; font-size: clamp(1.9rem, 9vw, 2.6rem); }
+  .sub { font-size: 1.45rem; margin-top: 36px; }
+  .grid-2 { gap: 22px; }
+
+  /* Protagonista */
+  .hero-card { gap: 22px; }
+  .hero-card__art { max-width: 260px; margin-inline: auto; }
+  .hero-card__info h3 { font-size: 2rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+
+  /* Personajes en dos columnas */
+  .char-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .char-card__portrait { height: 200px; }
+  .char-card__arcana { font-size: .75rem; padding: 1px 10px 1px 14px; top: 8px; }
+  .char-card__body { padding: 10px 12px 16px; }
+  .char-card__name { font-size: 1.2rem; }
+  .char-card__meta { font-size: .78rem; line-height: 1.35; }
+  .toolbar input { max-width: 100%; }
+
+  /* Modal */
+  .modal { padding: 10px; }
+  .modal__info h3 { font-size: 2rem; }
+  .modal__info .stats { grid-template-columns: 1fr; }
+
+  /* Social Links */
+  .slink { grid-template-columns: 40px 60px 1fr; gap: 10px; }
+  .slink__num { font-size: 1.15rem; }
+  .slink h4 { font-size: 1.1rem; }
+
+  /* Mes a mes */
+  .month-tab { padding: 5px 12px; }
+  .month-tab__num { font-size: 1.3rem; }
+  .month-panel__head { padding: 18px 16px; gap: 10px; }
+  .month-panel__body { padding: 18px 16px 22px; gap: 22px; }
+  .month-todo li { padding-left: 46px; font-size: .95rem; }
+  .weeks__more { font-size: .95rem; padding: 8px 16px; }
+
+  /* Tártaro */
+  .blocks li { flex: 1 1 40%; font-size: 1.3rem; padding: 14px 14px 10px; }
+
+  /* Reproductor compacto y botones flotantes */
+  .player { right: calc(10px + env(safe-area-inset-right, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: calc(100vw - 20px); }
+  .player__frame iframe { height: 80px; }
+  .player__toggle { width: 50px; height: 50px; }
+  .player__hint { font-size: .9rem; }
+  .to-top { left: 10px; bottom: 10px; width: 42px; height: 42px; }
+  .footer { padding-bottom: 150px; }
+
+  /* Menú P3R */
+  .p3menu__list { padding-top: 96px; }
+  .p3menu__list a { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .p3menu__close { top: 14px; font-size: 1.1rem; padding: 4px 12px; }
+}
+
+@media (max-width: 640px) {
+  /* Menú opaco para que no se vea la página detrás */
+  .p3menu { background: linear-gradient(115deg, #030c26 0 45%, #1b4fd8 45% 100%); }
+  body.dark-hour .p3menu { background: linear-gradient(115deg, #010805 0 45%, #127a4a 45% 100%); }
+  .p3menu__portrait { opacity: .55; }
+  /* Pestañas de meses: se desplazan con el dedo, sin barra visible */
+  .months { scrollbar-width: none; }
+  .months::-webkit-scrollbar { display: none; }
+}
+
+/* El arte ampliado del modal no debe generar scroll horizontal */
+.modal__art { overflow: hidden; }
+.modal__box { overflow-x: hidden; }

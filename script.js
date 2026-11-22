@@ -536,11 +536,16 @@ function portraitHTML(c) {
   const toggle = $("#player-toggle");
   const hint = $("#player-hint");
 
-  if (storage.get("p3r-player-collapsed") === "1") {
+  // En móvil empieza recogido (si la persona no eligió otra cosa) para no tapar la página
+  const pref = storage.get("p3r-player-collapsed");
+  const isPhone = window.matchMedia("(max-width: 640px)").matches;
+  if (pref === "1" || (pref === null && isPhone)) {
     player.classList.add("is-collapsed");
     toggle.setAttribute("aria-expanded", "false");
   }
   if (storage.get("p3r-hint-seen") === "1") hint.hidden = true;
+  // En móvil el aviso se oculta solo a los pocos segundos para no tapar el contenido
+  if (isPhone && !hint.hidden) setTimeout(() => { hint.hidden = true; }, 6000);
 
   toggle.addEventListener("click", () => {
     const collapsed = player.classList.toggle("is-collapsed");
