@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Persona 3 Reload — Guía</title>
+  <meta name="description" content="Guía fan de Persona 3 Reload: historia, protagonista, SEES, Social Links, Tártaro y combate.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,700;1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Burbujas de fondo (las genera script.js) -->
+  <div class="bubbles" aria-hidden="true"></div>
+
+  <!-- ============ NAVEGACIÓN ============ -->
+  <header class="nav">
+    <a href="#inicio" class="nav__logo"><span>P3</span>RELOAD</a>
+
+    <!-- Widget de fecha + fase lunar, estilo HUD de P3R -->
+    <div class="hud-date" aria-label="Fecha actual">
+      <div class="hud-date__md"><span id="hud-month">--</span><i>/</i><span id="hud-day">--</span></div>
+      <div class="hud-date__side">
+        <span id="hud-wday">---</span>
+        <span id="hud-time">Después de clases</span>
+      </div>
+      <div class="hud-date__moon" id="hud-moon" title="Fase lunar"></div>
+    </div>
+
+    <button class="dark-hour-toggle" aria-pressed="false" title="Activar la Hora Oscura">
+      <span class="dot"></span><span class="dh-label">Hora Oscura</span>
+    </button>
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false">
+      <span>MENU</span>
+    </button>
+  </header>
+
+  <!-- ============ MENÚ ESTILO P3R (pantalla completa) ============ -->
+  <div class="p3menu" id="p3menu" hidden>
+    <div class="p3menu__water" aria-hidden="true"></div>
+    <div class="p3menu__portrait" aria-hidden="true"><img src="assets/img/menu-makoto.jpg" alt=""></div>
+    <nav class="p3menu__list" aria-label="Secciones">
+      <a href="#historia"     data-desc="La Hora Oscura, las Sombras y el SEES."><b>HISTORIA</b></a>
+      <a href="#protagonista" data-desc="El portador de la Wild Card."><b>PROTAGONISTA</b></a>
+      <a href="#personajes"   data-desc="Los miembros del escuadrón."><b>SEES</b></a>
+      <a href="#social"       data-desc="Los vínculos de cada Arcano."><b>SOCIAL LINK</b></a>
+      <a href="#tartaro"      data-desc="La torre y el sistema de combate."><b>TÁRTARO</b></a>
+      <a href="#meses"        data-desc="Qué hacer en cada mes, de abril a enero."><b>MES A MES</b></a>
+      <a href="#consejos"     data-desc="Calendario y consejos útiles."><b>CONSEJOS</b></a>
+      <a href="#galeria"      data-desc="Imágenes oficiales."><b>GALERÍA</b></a>
+    </nav>
+    <p class="p3menu__desc" id="p3menu-desc">Selecciona una opción.</p>
+    <button class="p3menu__close" id="menu-close" aria-label="Cerrar menú">✕ <small>CERRAR · ESC</small></button>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="inicio" class="hero">
+      <div class="hero__moon" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__kicker">ATLUS · 2024 · Remake de Persona 3</p>
+        <h1 class="hero__title">PERSONA <em>3</em><span>RELOAD</span></h1>
+        <p class="hero__quote">"Memento mori" — Recuerda que vas a morir.</p>
+        <a href="#historia" class="btn btn--slant">Entrar al Tártaro</a>
+      </div>
+      <img class="hero__art" src="assets/img/keyvisual.webp" alt="El protagonista invocando a Orfeo">
+    </section>
+
+    <!-- ============ HISTORIA ============ -->
+    <section id="historia" class="section">
+      <h2 class="section__title"><span>STORY</span> Historia</h2>
+      <div class="grid-2">
+        <div>
+          <p>Abril de 2009. Un estudiante de intercambio llega a la ciudad de <strong>Iwatodai</strong> para empezar el curso en la <strong>Escuela Gekkoukan</strong>, en Port Island. La primera noche, al llegar a la residencia, descubre que existe una hora oculta entre un día y el siguiente: la <strong>Hora Oscura</strong>.</p>
+          <p>Durante esa hora casi todas las personas se convierten en ataúdes, el cielo se tiñe de verde y aparecen las <strong>Sombras</strong>, criaturas que devoran la mente de las personas y provocan el <em>Síndrome de Apatía</em>. La escuela se transforma en el <strong>Tártaro</strong>, una torre gigantesca y cambiante.</p>
+          <p>El protagonista despierta su <strong>Persona</strong> y se une al <strong>SEES</strong> (Escuadrón Especial de Ejecución Extracurricular), un grupo de estudiantes que usan unas pistolas llamadas <em>Evokers</em> para invocar a sus Personas y luchar contra las Sombras.</p>
+        </div>
+        <figure class="framed">
+          <img src="assets/img/screenshot.jpg" alt="Captura de Persona 3 Reload" loading="lazy">
+          <figcaption>Una captura del juego</figcaption>
+        </figure>
+      </div>
+
+      <button class="btn btn--ghost spoiler-btn" aria-expanded="false">⚠ Mostrar spoilers</button>
+      <div class="spoiler" hidden>
+        <p>Cada luna llena aparece una Sombra Grande. Hay doce Sombras Grandes ligadas a los Arcanos, y el Grupo Kirijo afirma que derrotarlas hará desaparecer la Hora Oscura. Pero en realidad, al vencerlas, se reúnen los fragmentos de <strong>Muerte</strong>, la entidad sellada dentro del protagonista desde el accidente de hace diez años, y se acerca la llegada de <strong>Nyx</strong>, que significaría el fin de la humanidad.</p>
+        <p>El misterioso niño <strong>Pharos</strong> y el estudiante <strong>Ryoji Mochizuki</strong> son la forma humana de Muerte. La única forma de detener a Nyx es el sacrificio del protagonista, que convierte su alma en el <em>Gran Sello</em>. <strong>Episode Aigis</strong> (la DLC basada en <em>The Answer</em>) continúa la historia después del final.</p>
+      </div>
+    </section>
+
+    <!-- ============ PROTAGONISTA ============ -->
+    <section id="protagonista" class="section section--accent">
+      <h2 class="section__title"><span>STATUS</span> El protagonista</h2>
+      <div class="hero-card">
+        <div class="hero-card__art">
+          <img src="assets/personajes/protagonista.webp" alt="El protagonista de Persona 3 Reload" loading="lazy">
+        </div>
+        <div class="hero-card__info">
+          <h3>Makoto Yuki <small>(nombre por defecto)</small></h3>
+          <p>Es un estudiante tranquilo e indiferente que siempre lleva audífonos. Quedó huérfano por un accidente hace diez años y por eso se mudó muchas veces de ciudad. Es el líder del SEES en combate y el único que tiene el poder de la <strong>Wild Card</strong>: puede usar varias Personas y cambiar entre ellas.</p>
+          <dl class="stats">
+            <div><dt>Arcano</dt><dd>0 · El Loco</dd></div>
+            <div><dt>Persona inicial</dt><dd>Orfeo</dd></div>
+            <div><dt>Arma</dt><dd>Espada de una mano</dd></div>
+            <div><dt>Poder</dt><dd>Wild Card</dd></div>
+            <div><dt>Voz (EN)</dt><dd>Aleks Le</dd></div>
+            <div><dt>Voz (JP)</dt><dd>Akira Ishida</dd></div>
+          </dl>
+          <p class="note">En la <strong>Velvet Room</strong>, Igor y su ayudante Elizabeth te permiten fusionar Personas y registrarlas en el compendio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PERSONAJES ============ -->
+    <section id="personajes" class="section">
+      <h2 class="section__title"><span>PARTY</span> Miembros del SEES</h2>
+      <div class="toolbar">
+        <input type="search" id="char-search" placeholder="Buscar personaje, arcano o elemento…" aria-label="Buscar personaje">
+      </div>
+      <div id="char-grid" class="char-grid"></div>
+      <p id="char-empty" class="empty" hidden>No se encontró ningún personaje.</p>
+    </section>
+
+    <!-- ============ SOCIAL LINKS ============ -->
+    <section id="social" class="section section--accent">
+      <h2 class="section__title"><span>COMMU</span> Social Links</h2>
+      <p class="lead">Cada vínculo corresponde a un Arcano. La fecha de inicio es la que sigue la ruta 100% de la guía de TenSquare3 en GameFAQs. Al subirlos de rango, las Personas de ese Arcano reciben experiencia extra al fusionarlas. <strong>Consejo:</strong> lleva una Persona del mismo Arcano cuando pases tiempo con esa persona para avanzar más rápido.</p>
+      <div class="chips" id="social-filters" role="tablist"></div>
+      <div class="social-grid" id="social-grid"></div>
+      <figure class="framed framed--wide">
+        <img src="assets/img/social.jpg" alt="Eventos de interacción en Persona 3 Reload" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ============ TÁRTARO Y COMBATE ============ -->
+    <section id="tartaro" class="section">
+      <h2 class="section__title"><span>DUNGEON</span> Tártaro y combate</h2>
+      <div class="mech-grid">
+        <article class="mech">
+          <h3>One More</h3>
+          <p>Si golpeas la debilidad de un enemigo o haces un crítico, lo derribas y consigues un turno extra.</p>
+        </article>
+        <article class="mech">
+          <h3>All-Out Attack</h3>
+          <p>Cuando todos los enemigos están derribados, el grupo puede lanzarse a la vez para hacer muchísimo daño.</p>
+        </article>
+        <article class="mech mech--new">
+          <span class="badge">Nuevo en Reload</span>
+          <h3>Shift</h3>
+          <p>Después de un One More puedes pasarle el turno a un aliado, que recibe un aumento de poder. Sirve para encadenar debilidades.</p>
+        </article>
+        <article class="mech mech--new">
+          <span class="badge">Nuevo en Reload</span>
+          <h3>Theurgy</h3>
+          <p>Son ataques definitivos únicos de cada personaje. La barra se llena con acciones propias de cada uno, como curar o golpear debilidades.</p>
+        </article>
+        <article class="mech">
+          <h3>Debilidades</h3>
+          <p>Hay ataques físicos (Corte, Golpe, Perforación) y elementales (Fuego, Hielo, Electricidad, Viento, Luz y Oscuridad). Usa a Fuuka para analizar a los enemigos.</p>
+        </article>
+        <article class="mech mech--new">
+          <span class="badge">Nuevo en Reload</span>
+          <h3>Fragmentos del Crepúsculo</h3>
+          <p>Úsalos en los relojes del Tártaro para recuperar HP y SP, o para abrir cofres dorados.</p>
+        </article>
+      </div>
+
+      <h3 class="sub">Bloques del Tártaro</h3>
+      <ol class="blocks">
+        <li><b>Thebel</b></li>
+        <li><b>Arqa</b></li>
+        <li><b>Yabbashah</b></li>
+        <li><b>Tziah</b></li>
+        <li><b>Harabah</b></li>
+        <li><b>Adamah</b></li>
+      </ol>
+      <p class="note">Cada bloque termina en una barrera que solo se abre a medida que avanza la historia. En Reload también aparecen las <strong>Puertas Mónada</strong>, que llevan a zonas opcionales con enemigos más fuertes y mejores recompensas.</p>
+    </section>
+
+    <!-- ============ MES A MES ============ -->
+    <section id="meses" class="section">
+      <h2 class="section__title"><span>SCHEDULE</span> Mes a mes</h2>
+      <p class="lead">Qué hacer en cada mes del año escolar, de abril a enero. Las fechas siguen la ruta 100% de la guía de TenSquare3; el piso del Tártaro es hasta dónde llega esa ruta al terminar el mes.</p>
+      <div class="months" id="months-tabs" role="tablist" aria-label="Meses"></div>
+      <div class="month-panel" id="month-panel" role="tabpanel" aria-live="polite"></div>
+    </section>
+
+    <!-- ============ CONSEJOS ============ -->
+    <section id="consejos" class="section section--accent">
+      <h2 class="section__title"><span>CALENDAR</span> Calendario y consejos</h2>
+      <div class="tips">
+        <div class="tip"><span class="tip__tag">Evento</span><h3>Luna llena</h3><p>Cada mes hay un combate importante contra una Sombra Grande. Antes de esa fecha, prepara bien a tu grupo y llena tu inventario.</p></div>
+        <div class="tip"><span class="tip__tag">Escuela</span><h3>Exámenes</h3><p>Hay exámenes en mayo, julio, octubre y diciembre. Estudia los días antes para subir Academics y aprobar con buena nota.</p></div>
+        <div class="tip"><span class="tip__tag">Stats</span><h3>Estadísticas sociales</h3><p>Academics, Charm y Courage tienen 6 rangos cada una. Algunos Social Links y eventos piden un rango mínimo.</p></div>
+        <div class="tip"><span class="tip__tag">Velvet Room</span><h3>Peticiones de Elizabeth</h3><p>Cumple las peticiones de la Velvet Room. Dan objetos y recompensas muy útiles.</p></div>
+        <div class="tip"><span class="tip__tag">Residencia</span><h3>La residencia</h3><p>Por la noche puedes cocinar, cuidar el huerto o estudiar con tus compañeros para subir estadísticas y mejorar las relaciones.</p></div>
+        <div class="tip"><span class="tip__tag">Nuevo</span><h3>Rewind</h3><p>Reload te deja volver a una tarde o noche de los días anteriores para corregir una mala decisión sin cargar una partida vieja.</p></div>
+        <div class="tip"><span class="tip__tag">Nuevo</span><h3>Linked Episodes</h3><p>Los chicos del SEES (Junpei, Akihiko, Shinjiro, Ken y Koromaru) tienen episodios propios que funcionan como Social Links.</p></div>
+        <div class="tip"><span class="tip__tag">Tártaro</span><h3>Sube al Tártaro con frecuencia</h3><p>Rescata a las personas desaparecidas antes de la luna llena y sube de nivel poco a poco para no quedarte atrás.</p></div>
+      </div>
+
+      <h3 class="sub">Rangos de estadísticas sociales</h3>
+      <div class="ranks-wrap">
+        <table class="ranks">
+          <thead><tr><th>Stat</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+          <tbody>
+            <tr><th>Academics</th><td>Slacker</td><td>Average</td><td>Above Average</td><td>Smart</td><td>Intelligent</td><td>Genius</td></tr>
+            <tr><th>Charm</th><td>Plain</td><td>Unpolished</td><td>Confident</td><td>Smooth</td><td>Popular</td><td>Charismatic</td></tr>
+            <tr><th>Courage</th><td>Timid</td><td>Ordinary</td><td>Determined</td><td>Tough</td><td>Fearless</td><td>Badass</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stat-howto">
+        <div><h4>Academics</h4><p>Estudia en la biblioteca, mantente despierto en clase, visita la sala de profesores o trabaja en Be Blue V.</p></div>
+        <div><h4>Charm</h4><p>Responde bien en clase, toma café en Mandragora, trabaja en Chargall Café y saca buenas notas en los exámenes.</p></div>
+        <div><h4>Courage</h4><p>Canta en el karaoke, ve al cine en Screen Shot, juega en el arcade o acepta el reto de comida en Wilduck.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section id="galeria" class="section">
+      <h2 class="section__title"><span>ARCHIVE</span> Galería</h2>
+      <div class="gallery">
+        <figure><img src="assets/img/keyvisual.webp" alt="Arte principal" loading="lazy"><figcaption>Arte principal</figcaption></figure>
+        <figure><img src="assets/img/boxart.jpg" alt="Portada" loading="lazy"><figcaption>Portada</figcaption></figure>
+        <figure><img src="assets/img/episode-aigis.webp" alt="Episode Aigis" loading="lazy"><figcaption>Episode Aigis</figcaption></figure>
+        <figure><img src="assets/img/menu.png" alt="Menú del juego" loading="lazy"><figcaption>Menú</figcaption></figure>
+        <figure><img src="assets/img/artbook.png" alt="Artbook" loading="lazy"><figcaption>Artbook</figcaption></figure>
+        <figure><img src="assets/img/screenshot.jpg" alt="Captura" loading="lazy"><figcaption>Captura</figcaption></figure>
+        <figure><img src="assets/img/social.jpg" alt="Social" loading="lazy"><figcaption>Vida diaria</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Página de fans sin fines comerciales. Persona 3 Reload © ATLUS / SEGA. Imágenes de la web oficial y de Wikipedia.</p>
+    <p>Datos verificados con la guía 100% de TenSquare3 en <a href="https://gamefaqs.gamespot.com/ps5/410283-persona-3-reload/faqs/81159" target="_blank" rel="noopener">GameFAQs</a>. Arte de personajes: web oficial de ATLUS. Música: banda sonora oficial en Spotify.</p>
+  </footer>
+
+  <!-- ============ MODAL PERSONAJE ============ -->
+  <div class="modal" id="char-modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+      <button class="modal__close" data-close aria-label="Cerrar">✕</button>
+      <div class="modal__body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ============ REPRODUCTOR SPOTIFY ============ -->
+  <div class="player" id="player">
+    <div class="player__hint" id="player-hint">🎧 Dale play para escuchar la banda sonora <button aria-label="Cerrar aviso">✕</button></div>
+    <div class="player__frame">
+      <iframe title="Banda sonora de Persona 3 Reload en Spotify"
+        src="https://open.spotify.com/embed/album/20Bf2RVERC5Bc2eo3vyvJv?utm_source=generator&theme=0"
+        width="100%" height="152" frameborder="0" allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <button class="player__toggle" id="player-toggle" aria-expanded="true" aria-label="Mostrar u ocultar música">🎧</button>
+  </div>
+
+  <!-- Botón volver arriba (luna) -->
+  <a href="#inicio" class="to-top" aria-label="Volver arriba"></a>
+
+  <script src="script.js"></script>
+</body>
+</html>
